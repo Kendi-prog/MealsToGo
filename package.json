@@ -7,16 +7,21 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eas-build-pre-install": "corepack enable && yarn set version 4"
+    "eas-build-pre-install": "corepack enable && yarn set version 4",
+    "lint": "eslint . --ext .js"
   },
   "dependencies": {
     "expo": "^52.0.29",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
-    "react-native": "0.76.6"
+    "react-native": "0.76.6",
+    "react-native-paper": "^5.13.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "@react-native-community/eslint-config": "^3.2.0",
+    "eslint": "^9.19.0",
+    "prettier": "^3.4.2"
   },
   "private": true,
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
