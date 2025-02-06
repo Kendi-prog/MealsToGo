@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import { RestaurantCard, RestaurantCardCover, Title } from "./restaurant-info-card.styles";
+import { RestaurantCard, RestaurantCardCover, Title, Info, Address } from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
     const {
@@ -19,7 +19,10 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     return (
         <RestaurantCard elevation={5}>
             <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
-            <Title>{name}</Title>
+            <Info>
+                <Title>{name}</Title>
+                <Address>{address}</Address>
+            </Info>    
         </RestaurantCard>
     );
 }
