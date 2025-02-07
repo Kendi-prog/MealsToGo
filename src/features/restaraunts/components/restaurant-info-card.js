@@ -1,7 +1,15 @@
 import React from "react";
+import { SvgXml } from "react-native-svg";
 
-
-import { RestaurantCard, RestaurantCardCover, Title, Info, Address } from "./restaurant-info-card.styles";
+import star from "../../../../assets/star";
+import { 
+    RestaurantCard, 
+    RestaurantCardCover, 
+    Title, 
+    Info, 
+    Address,
+    Rating 
+} from "./restaurant-info-card.styles";
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
     const {
@@ -16,11 +24,20 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
         isClosedTemporarily
     } = restaurant;
 
+    const ratingArray = Array.from(new Array(Math.floor(ratings)));
+    console.log(ratingArray);
+
     return (
         <RestaurantCard elevation={5}>
             <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
             <Info>
                 <Title>{name}</Title>
+                <Rating>
+                    {ratingArray.map(() => 
+                        <SvgXml xml={star} width={20} height={20} />
+                    )}
+                </Rating>
+               
                 <Address>{address}</Address>
             </Info>    
         </RestaurantCard>
