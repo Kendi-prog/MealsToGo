@@ -1,6 +1,6 @@
 import React from "react";
-import { StatusBar as ExpoStatusBar } from 'expo-status-bar';
 import { Searchbar } from 'react-native-paper';
+import { FlatList } from "react-native";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card";
 import { SafeArea, SearchContainer, RestaurantListContainer } from "./restaurant.screens.styles";
@@ -11,9 +11,11 @@ export const RestaurantsScreens = () =>  {
         <SearchContainer>
           <Searchbar />
         </SearchContainer>
-        <RestaurantListContainer>
-          <RestaurantInfoCard />
-        </RestaurantListContainer> 
+        <FlatList 
+            data={[{name: 1}, {name:2}]}
+            renderItem={() => <RestaurantInfoCard />}
+            keyExtractor={(item) => item.name}
+            contentContainerStyle={{padding: 16}}/>
       </SafeArea> 
   );
 }
