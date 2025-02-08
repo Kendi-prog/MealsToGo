@@ -1,9 +1,9 @@
 import React from "react";
 import { Searchbar } from 'react-native-paper';
-import { FlatList } from "react-native";
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card";
 import { SafeArea, SearchContainer, RestaurantListContainer } from "./restaurant.screens.styles";
+import { Spacer } from "../../../components/spacer/spacer";
 
 export const RestaurantsScreens = () =>  {
   return (
@@ -11,11 +11,14 @@ export const RestaurantsScreens = () =>  {
         <SearchContainer>
           <Searchbar />
         </SearchContainer>
-        <FlatList 
+        <RestaurantListContainer 
             data={[{name: 1}, {name:2}]}
-            renderItem={() => <RestaurantInfoCard />}
+            renderItem={() => (
+              <Spacer position="bottom" size="large">
+                <RestaurantInfoCard />
+              </Spacer>)}
             keyExtractor={(item) => item.name}
-            contentContainerStyle={{padding: 16}}/>
+        />
       </SafeArea> 
   );
 }
