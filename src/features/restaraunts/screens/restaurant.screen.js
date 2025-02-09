@@ -2,8 +2,9 @@ import React from "react";
 import { Searchbar } from 'react-native-paper';
 
 import { RestaurantInfoCard } from "../components/restaurant-info-card";
-import { SafeArea, SearchContainer, RestaurantListContainer } from "./restaurant.screens.styles";
+import { SearchContainer, RestaurantListContainer } from "./restaurant.screens.styles";
 import { Spacer } from "../../../components/spacer/spacer";
+import { SafeArea } from "../../../components/utility/safe-area";
 
 export const RestaurantsScreens = () =>  {
   return (
