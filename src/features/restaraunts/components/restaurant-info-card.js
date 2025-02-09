@@ -1,5 +1,4 @@
 import React from "react";
-import { Text } from "react-native";
 import { SvgXml } from "react-native-svg";
 
 import star from "../../../../assets/star";
@@ -9,7 +8,6 @@ import { Text } from "../../../components/typography/text";
 import { 
     RestaurantCard, 
     RestaurantCardCover, 
-    Title, 
     Info, 
     Address,
     Rating,
