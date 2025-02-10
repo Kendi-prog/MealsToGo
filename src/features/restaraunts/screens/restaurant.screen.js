@@ -6,21 +6,22 @@ import { SearchContainer, RestaurantListContainer } from "./restaurant.screens.s
 import { Spacer } from "../../../components/spacer/spacer";
 import { SafeArea } from "../../../components/utility/safe-area";
 import { RestaurantContext } from "../../../services/restaurant/restaurant.context";
-import { use } from "react";
+
 
 export const RestaurantsScreens = () =>  {
-  const restaurantContext = useContext(RestaurantContext);
+  const { restaurants, isLoading, error } = useContext(RestaurantContext);
   return (
       <SafeArea>
         <SearchContainer>
           <Searchbar />
         </SearchContainer>
         <RestaurantListContainer 
-            data={restaurantContext.restaurants}
-            renderItem={() => (
-              <Spacer position="bottom" size="large">
-                <RestaurantInfoCard />
-              </Spacer>)}
+            data={restaurants}
+            renderItem={({ item }) => {
+              return (
+                <Spacer position="bottom" size="large">
+                  <RestaurantInfoCard  restaurant={item}/>
+                </Spacer>)}}
             keyExtractor={(item) => item.name}
         />
       </SafeArea> 

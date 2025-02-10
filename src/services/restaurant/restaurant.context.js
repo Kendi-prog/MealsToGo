@@ -5,10 +5,35 @@ import { restarauntsRequest, restarauntsTransform } from "./restaurant.service";
 export const RestaurantContext = createContext();
 
 export const RestaurantContextProvider = ({ children }) => {
+    const [restaurants, setRestaurants] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    const retrieveRestaurants = () => {
+        setIsLoading(true);
+        setTimeout(() => {
+            restarauntsRequest()
+                .then(restarauntsTransform)
+                .then((results) => {
+                    setIsLoading(false);
+                    setRestaurants(results);
+                }).catch(err => {
+                    setIsLoading(false);
+                    setError(err);
+                })
+        }, 2000);
+    }
+
+    useEffect(() => {
+        retrieveRestaurants();
+    }, []);
+
     return (
         <RestaurantContext.Provider 
             value={{
-                restaurant: [1, 2, 3],
+                restaurants,
+                isLoading,
+                error
             }}
         >
             {children}
