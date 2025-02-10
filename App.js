@@ -15,7 +15,7 @@ import {
 import { theme } from './src/infrastructure/theme';
 import { RestaurantsScreens } from './src/features/restaraunts/screens/restaurant.screen';
 import { SafeArea } from './src/components/utility/safe-area';
-import { restarauntsRequest } from './src/services/restaurant/restaurant.service';
+
 
 
 
