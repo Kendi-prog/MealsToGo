@@ -1,3 +1,4 @@
+import camelize from "camelize";
 import { mocks } from "./mock";
 
 export const restarauntsRequest = (location ="37.7749295,-122.4194155" ) => {
@@ -12,8 +13,15 @@ export const restarauntsRequest = (location ="37.7749295,-122.4194155" ) => {
     });
 };
 
-restarauntsRequest().then((result) => {
-    console.log(result);
-}).catch((error) => {
+const restarauntsTransform = (result) => {
+    return camelize(result);
+}
+
+restarauntsRequest()
+    .then(restarauntsTransform)
+    .then(transformedResponse => 
+        console.log(transformedResponse)
+    )
+    .catch((error) => {
     console.log(error);
-});
+    });
